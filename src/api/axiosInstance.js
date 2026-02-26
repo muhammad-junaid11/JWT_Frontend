@@ -1,5 +1,5 @@
 import axios from "axios";
-import { jwtDecode } from "jwt-decode"; 
+import jwt_decode from "jwt-decode";  
 
 let accessToken = null;
 
@@ -11,7 +11,7 @@ const api = axios.create({
 const isTokenExpired = (token) => {
   if (!token) return true;
   try {
-    const decoded = jwtDecode(token); 
+    const decoded = jwt_decode(token); 
     return decoded.exp * 1000 < Date.now();
   } catch (error) {
     return true; 
