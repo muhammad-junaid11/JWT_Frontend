@@ -4,7 +4,7 @@ import { jwtDecode } from "jwt-decode";
 let accessToken = null;
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://jwt-backend-5d0qx7phu-muhammad-junaids-projects-545d53e5.vercel.app/api",
   withCredentials: true,
 });
 
@@ -26,7 +26,7 @@ api.interceptors.request.use(async (config) => {
   if (accessToken && isTokenExpired(accessToken)) {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/refresh-token",
+        "https://jwt-backend-5d0qx7phu-muhammad-junaids-projects-545d53e5.vercel.app/api/refresh-token",
         {},
         { withCredentials: true }
       );
